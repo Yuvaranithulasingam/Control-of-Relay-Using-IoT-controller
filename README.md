@@ -38,10 +38,46 @@ When there is no voltage applied to the coil, COM (common) is connected to NC (n
 In this Arduino  Relay Control Circuit we have used Arduino to control the relay via a BC547 transistor. We have connected transistor base to Arduino pin A0 through a 1k resistor. An AC bulb is used for demonstration.Working is simple, we need to make the RELAY Pin (PIN A0) high to make the Relay module ON and make the RELAY pin low to turn off the Relay Module. The AC light will also turn on and off according to Relay.
 
 ## PROGRAM:
+```
+int sensorPin = A0; // select the input pin for the LDR
+int sensorValue = 0; // variable to store the value coming from the sensor
+int led = 13;
+void setup()
+{
+   // declare the ledPin as an OUTPUT:
+   pinMode(led, OUTPUT);
+   Serial.begin(9600);
+}
+void loop()
+{
+    Serial.println("Welcome to TechPonder LDR Tutorial");
+    sensorValue = analogRead(sensorPin);
+    Serial.println(sensorValue);
+    if (sensorValue < 100)
+    {
+        Serial.println("LED light on");
+        digitalWrite(led,HIGH);
+        delay(1000);
+    }
+    digitalWrite(led,LOW);
+    delay(sensorValue);
+}
+```
+#### Name : YUVARANI T
+#### Register no : 212222110057
 
 ## CIRCUIT DIAGRAM:
 
+![{861E10BC-06AB-49A2-AD14-3B5882CFCCD4}](https://github.com/user-attachments/assets/07081667-8a06-4ead-8bc8-fd7b0530c29e)
+
 ## OUTPUT:
+### LED OFF:
+
+![{3606E86C-9710-474B-B1AB-5EABC5BB21B8}](https://github.com/user-attachments/assets/299ae5e3-a89b-40c0-9d46-0868d11ea7ad)
+
+### LED ON:
+
+![{BC0119A8-ADDC-47CA-BB22-80B78B34A727}](https://github.com/user-attachments/assets/46866098-37f1-433f-b893-ef297df9629d)
 
 ## RESULT:
 
